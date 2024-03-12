@@ -113,7 +113,7 @@ const onDelete = async (id, index) => {
     const confirmDelete = confirm("Are you sure you want to delete " + expense.data.Item + "?")
     if (confirmDelete) {
         await deleteDoc(doc(db, 'expenseTracker', id))
-        expTracker.value.splice(index, 1)
+        expTracker.value.filter(expense => expense.id !== id)
     }
 }
 
